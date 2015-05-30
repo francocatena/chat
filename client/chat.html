@@ -6,7 +6,12 @@
   <div class="container">
     <h1>Bienvenido a la conversación</h1>
 
-    {{> chat}}
+    {{#if currentUser}}
+      {{> chat}}
+    {{/if}}
+
+    <hr>
+    {{> loginButtons}}
   </div>
 </body>
 
