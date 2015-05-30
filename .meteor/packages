@@ -8,4 +8,4 @@ meteor-platform
 twbs:bootstrap
 momentjs:moment
 accounts-google
-accounts-ui
+ian:accounts-ui-bootstrap-3

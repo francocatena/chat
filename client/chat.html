@@ -3,15 +3,18 @@
 </head>
 
 <body>
+  {{> encabezado}}
+
   <div class="container">
-    <h1>Bienvenido a la conversación</h1>
+    <h1>Bienvenido</h1>
 
     {{#if currentUser}}
       {{> chat}}
+    {{else}}
+      <div class="alert alert-warning text-center">
+        Debe ingresar para utilizar el chat
+      </div>
     {{/if}}
-
-    <hr>
-    {{> loginButtons}}
   </div>
 </body>
 
@@ -39,4 +42,25 @@
     <span class="small text-muted">{{fecha}} |</span>
     {{texto}}
   </li>
+</template>
+
+<template name="encabezado">
+  <div class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Chat</a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Cambiar navegación</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          {{> loginButtons}}
+        </ul>
+      </div>
+    </div>
+  </div>
 </template>

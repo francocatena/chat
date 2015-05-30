@@ -1,5 +1,7 @@
 Meteor.subscribe('mensajes')
 
+accountsUIBootstrap3.setLanguage('es')
+
 Template.chat.helpers({
   mensajes: function () {
     return Mensajes.find({}, { sort: { fecha: 1 } })
