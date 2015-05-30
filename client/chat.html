@@ -19,11 +19,11 @@
 </body>
 
 <template name="chat">
-  <ul class="list-unstyled">
-    {{#each mensajes}}
-      {{> mensaje}}
-    {{/each}}
-  </ul>
+  {{#each mensajes}}
+    {{> mensaje}}
+  {{/each}}
+
+  <hr>
 
   <form>
     <div class="row">
@@ -38,10 +38,17 @@
 </template>
 
 <template name="mensaje">
-  <li>
-    <span class="small text-muted">{{fecha}} |</span>
-    {{texto}}
-  </li>
+  <div class="row">
+    <div class="col-xs-2">
+      <span class="small text-muted">{{usuario}}</span>
+    </div>
+    <div class="col-xs-9">
+      {{texto}}
+    </div>
+    <div class="col-xs-1">
+      <span class="small text-muted">{{fecha}}</span>
+    </div>
+  </div>
 </template>
 
 <template name="encabezado">

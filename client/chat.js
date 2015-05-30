@@ -14,9 +14,14 @@ Template.chat.events({
 
     var $mensaje = $('#mensaje')
     var texto    = $mensaje.val().trim()
+    var usuario  = Meteor.user()
 
     if (texto)
-      Mensajes.insert({ texto: texto, fecha: new Date })
+      Mensajes.insert({
+        texto:   texto,
+        fecha:   new Date,
+        usuario: usuario.profile.name
+      })
 
     $mensaje.val('').focus()
   }
