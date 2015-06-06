@@ -19,80 +19,22 @@
 </body>
 
 <template name="chat">
-  <div class="row">
-    <div class="col-md-3">
-      {{> salones}}
-    </div>
-    <div class="col-md-9">
-      {{> mensajes}}
-    </div>
-  </div>
-</template>
-
-<template name="salones">
-  <ul class="nav nav-pills nav-stacked">
-    {{#each salones}}
-      {{> salon}}
-    {{/each}}
-  </ul>
-</template>
-
-<template name="salon">
-  <li class="{{activo}}">
-    <a href="#">{{nombre}}</a>
-  </li>
-</template>
-
-<template name="mensajes">
-  {{#each mensajes}}
-    {{> mensaje}}
-  {{/each}}
-
-  <hr>
-
-  <form>
+  {{#if listo}}
     <div class="row">
-      <div class="col-xs-8">
-        <input class="form-control" type="text" name="mensaje" id="mensaje" autofocus>
+      <div class="col-md-3">
+        {{> salones}}
       </div>
-      <div class="col-xs-4">
-        <button class="btn btn-default btn-block" type="submit">Enviar</button>
+      <div class="col-md-9">
+        {{> mensajes}}
       </div>
     </div>
-  </form>
+  {{else}}
+    {{> cargando}}
+  {{/if}}
 </template>
 
-<template name="mensaje">
-  <div class="row">
-    <div class="col-xs-3">
-      <span class="small text-muted">{{usuario}}</span>
-    </div>
-    <div class="col-xs-7">
-      {{texto}}
-    </div>
-    <div class="col-xs-2 text-right">
-      <span class="small text-muted">{{fecha}}</span>
-    </div>
-  </div>
-</template>
-
-<template name="encabezado">
-  <div class="navbar navbar-default" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Chat</a>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Cambiar navegación</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          {{> loginButtons}}
-        </ul>
-      </div>
-    </div>
+<template name="cargando">
+  <div class="alert alert-warning">
+    Cargando, por favor espere...
   </div>
 </template>

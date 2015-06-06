@@ -1,0 +1,13 @@
+<template name="salones">
+  <ul class="nav nav-pills nav-stacked">
+    {{#each salones}}
+      {{> salon}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="salon">
+  <li class="{{activo}}">
+    <a href="#">{{nombre}}</a>
+  </li>
+</template>

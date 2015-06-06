@@ -1,0 +1,32 @@
+<template name="mensajes">
+  {{#each mensajes}}
+    {{> mensaje}}
+  {{/each}}
+
+  <hr>
+
+  <form>
+    <div class="row">
+      <div class="col-xs-8">
+        <input class="form-control" type="text" name="mensaje" id="mensaje" autofocus>
+      </div>
+      <div class="col-xs-4">
+        <button class="btn btn-default btn-block" type="submit">Enviar</button>
+      </div>
+    </div>
+  </form>
+</template>
+
+<template name="mensaje">
+  <div class="row">
+    <div class="col-xs-3">
+      <span class="small text-muted">{{usuario}}</span>
+    </div>
+    <div class="col-xs-7">
+      {{texto}}
+    </div>
+    <div class="col-xs-2 text-right">
+      <span class="small text-muted">{{fecha}}</span>
+    </div>
+  </div>
+</template>
