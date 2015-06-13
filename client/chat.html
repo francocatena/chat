@@ -3,20 +3,23 @@
 </head>
 
 <body>
+</body>
+
+<template name="principal">
   {{> encabezado}}
 
   <div class="container">
-    {{#if currentUser}}
-      {{> chat}}
-    {{else}}
-      <h1>Bienvenido</h1>
-
-      <div class="alert alert-warning text-center">
-        Debe ingresar para utilizar el chat
-      </div>
-    {{/if}}
+    {{> yield}}
   </div>
-</body>
+</template>
+
+<template name="inicio">
+  <h1>Bienvenido</h1>
+
+  <div class="alert alert-warning text-center">
+    Debe ingresar para utilizar el chat
+  </div>
+</template>
 
 <template name="chat">
   {{#if listo}}
