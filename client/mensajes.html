@@ -5,16 +5,7 @@
 
   <hr>
 
-  <form>
-    <div class="row">
-      <div class="col-xs-8">
-        <input class="form-control" type="text" name="mensaje" id="mensaje" autofocus>
-      </div>
-      <div class="col-xs-4">
-        <button class="btn btn-default btn-block" type="submit">Enviar</button>
-      </div>
-    </div>
-  </form>
+  {{> quickForm collection='Mensajes' id='agregarMensaje' type='insert' fields='texto' buttonContent='Enviar'}}
 </template>
 
 <template name="mensaje">

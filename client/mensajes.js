@@ -6,28 +6,19 @@ Template.mensajes.helpers({
   }
 })
 
-Template.mensajes.events({
-  'submit': function (event) {
-    event.preventDefault()
-
-    var $mensaje = $('#mensaje')
-    var texto    = $mensaje.val().trim()
-    var usuario  = Meteor.user()
-
-    if (texto)
-      Mensajes.insert({
-        texto:   texto,
-        fecha:   new Date,
-        usuario: usuario.profile.name,
-        salon:   Session.get('salonSeleccionado')
-      })
-
-    $mensaje.val('').focus()
-  }
-})
-
 Template.mensaje.helpers({
   fecha: function () {
     return moment(this.fecha).format('LT')
+  }
+})
+
+AutoForm.addHooks('agregarMensaje', {
+  before: {
+    insert: function (mensaje) {
+      mensaje.salon = Session.get('salonSeleccionado')
+      mensaje.fecha = new Date
+
+      return mensaje
+    }
   }
 })

@@ -9,3 +9,5 @@ twbs:bootstrap
 momentjs:moment
 accounts-google
 ian:accounts-ui-bootstrap-3
+aldeed:collection2
+aldeed:autoform
